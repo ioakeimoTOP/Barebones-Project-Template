@@ -6,7 +6,7 @@
   "scripts": {
     "scss-parse": "postcss src/styles/main.scss --parser postcss-scss --no-map --use postcss-advanced-variables postcss-nested postcss-import autoprefixer --output src/styles/main.css",
     "scss-parse:watch": "postcss src/styles/main.scss --parser postcss-scss --no-map --use postcss-advanced-variables postcss-nested postcss-import autoprefixer --output src/styles/main.css --watch",
-    "build": "npm run scss-parse && npx prettier --write . && git add src/styles/main.css",
+    "build": "npm run scss-parse && npx prettier --write . && git add src/styles/main.css src/styles/main.scss",
     "test": "jest",
     "prepare": "husky install"
   },
