@@ -11,10 +11,6 @@ html {
   padding: 0;
 }
 
-body {
-  min-height: 100svh;
-}
-
 img,
 picture,
 video,
@@ -39,4 +35,131 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+}
+
+:root {
+  /* Main Theme Hue */
+  --brand-hue: 268;
+  position: relative;
+}
+
+.light {
+  --brand: hsl(var(--brand-hue) 100% 50%);
+  --text-light: hsl(var(--brand-hue) 100% 90%);
+  --text-mid: hsl(var(--brand-hue) 100% 70%);
+  --text-dark: hsl(var(--brand-hue) 100% 10%);
+
+  --accent1: hsl(var(--brand-hue) 25% 90%);
+  --accent2: hsl(var(--brand-hue) 20% 90%);
+  --accent3: hsl(var(--brand-hue) 65% 90%);
+  --accent4: hsl(var(--brand-hue) 75% 90%);
+
+  --accent-shadow: hsl(var(--brand-hue) 100% 10%);
+}
+
+.dark {
+  --brand: hsl(var(--brand-hue) 100% 20%);
+  --text-light: hsl(var(--brand-hue) 100% 80%);
+  --text-mid: hsl(var(--brand-hue) 100% 60%);
+  --text-dark: hsl(var(--brand-hue) 100% 0%);
+
+  --accent1: hsl(var(--brand-hue) 25% 90%);
+  --accent2: hsl(var(--brand-hue) 20% 90%);
+  --accent3: hsl(var(--brand-hue) 65% 90%);
+  --accent4: hsl(var(--brand-hue) 75% 90%);
+
+  --accent-shadow: hsl(var(--brand-hue) 100% 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand: hsl(var(--brand-hue) 100% 20%);
+    --text-light: hsl(var(--brand-hue) 100% 80%);
+    --text-mid: hsl(var(--brand-hue) 100% 60%);
+    --text-dark: hsl(var(--brand-hue) 100% 0%);
+
+    --accent1: hsl(var(--brand-hue) 25% 90%);
+    --accent2: hsl(var(--brand-hue) 20% 90%);
+    --accent3: hsl(var(--brand-hue) 65% 90%);
+    --accent4: hsl(var(--brand-hue) 75% 90%);
+
+    --accent-shadow: hsl(var(--brand-hue) 100% 100%);
+  }
+}
+
+#theme-toggle {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  position: relative;
+  width: 4rem;
+  height: 2rem;
+  border-radius: 1rem;
+  border: 4px solid var(--accent4);
+  cursor: pointer;
+}
+
+/* Toggle Indicator */
+
+#theme-toggle::after {
+  content: '';
+  height: 1rem;
+  width: 1rem;
+  background: hsl(56, 100%, 50%);
+  box-shadow: 0 0 0.75rem var(--accent-shadow);
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0.25rem;
+  bottom: 0;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* Checked Styles */
+
+#theme-toggle:checked::after {
+  left: 2rem;
+  background: hsl(55, 70%, 90%);
+}
+
+body {
+  display: flex;
+  min-height: 100svh;
+  position: relative;
+  flex-direction: column;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header,
+main,
+footer {
+  padding: 1rem 2rem;
+}
+
+header,
+footer {
+  background: var(--brand);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 1;
+  box-shadow: 0 -0.25rem 1.5rem var(--accent-shadow);
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--text-light);
 }
