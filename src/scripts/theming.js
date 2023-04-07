@@ -1,5 +1,6 @@
 const root = document.firstElementChild;
 const body = document.body;
+const toggler = document.getElementById('theme-toggle');
 
 const toggleTheme = () => {
   // prettier-ignore
@@ -12,9 +13,9 @@ const toggleTheme = () => {
 };
 
 window.onload = () => {
-  document
-    .querySelector('#theme-toggle')
-    .addEventListener('change', toggleTheme);
+  toggler.addEventListener('change', toggleTheme);
+  // Remove focus on exit
+  toggler.addEventListener('mouseleave', () => toggler.blur());
 };
 
 // Keep in sync with potential system config changes
