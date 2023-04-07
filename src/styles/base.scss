@@ -4,6 +4,12 @@
   justify-content: center;
 }
 
+@mixin elevate {
+  padding: 2em 4em;
+  box-shadow: 0 0 0.5rem 0.1rem var(--accent-shadow);
+  border-radius: inherit;
+}
+
 body {
   display: flex;
   min-height: 100svh;
@@ -30,7 +36,12 @@ header {
   justify-content: space-between;
 
   z-index: 1;
-  box-shadow: 0 -0.25rem 1.5rem var(--accent-shadow);
+  box-shadow: 0 -0.25rem 1.5rem var(--text);
+}
+
+.logo {
+  color: var(--brand-white);
+  font-weight: bolder;
 }
 
 main {
@@ -40,5 +51,31 @@ main {
 footer {
   @include center-flex();
   flex-direction: column;
-  color: var(--text-light);
+  color: var(--brand-white);
+  font-weight: bold;
+}
+
+.surface {
+  padding: 2em 4em;
+  background: var(--accent-1);
+  box-shadow: 0 0 0.25rem var(--accent-shadow);
+  border-radius: 1rem;
+  color: var(--text);
+
+  & > .elevation {
+    @include elevate();
+    background: var(--accent-2);
+    & > .elevation {
+      @include elevate();
+      background: var(--accent-3);
+      & > .elevation {
+        @include elevate();
+        background: var(--accent-4);
+      }
+    }
+  }
+}
+
+p {
+  padding: 0.5rem 1rem;
 }

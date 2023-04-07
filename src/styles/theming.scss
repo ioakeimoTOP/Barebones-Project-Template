@@ -1,35 +1,36 @@
 :root {
   /* Main Theme Hue */
-  --brand-hue: 268;
-  position: relative;
+  --brand-hue: 220;
+  --brand-white: hsl(var(--brand-hue) 100% 95%);
+  --brand-black: hsl(var(--brand-hue) 100% 10%);
 }
 
 .light {
-  --brand: hsl(var(--brand-hue) 100% 50%);
-  --text-light: hsl(var(--brand-hue) 100% 90%);
-  --text-mid: hsl(var(--brand-hue) 100% 70%);
-  --text-dark: hsl(var(--brand-hue) 100% 10%);
+  --brand: hsl(var(--brand-hue) 80% 45%);
 
-  --accent1: hsl(var(--brand-hue) 25% 90%);
-  --accent2: hsl(var(--brand-hue) 20% 90%);
-  --accent3: hsl(var(--brand-hue) 65% 90%);
-  --accent4: hsl(var(--brand-hue) 75% 90%);
+  --text: var(--brand-black);
 
-  --accent-shadow: hsl(var(--brand-hue) 100% 10%);
+  --accent-saturation: 45%;
+  --accent-1: hsl(var(--brand-hue) var(--accent-saturation) 75%);
+  --accent-2: hsl(var(--brand-hue) var(--accent-saturation) 80%);
+  --accent-3: hsl(var(--brand-hue) var(--accent-saturation) 85%);
+  --accent-4: hsl(var(--brand-hue) var(--accent-saturation) 90%);
+
+  --accent-shadow: hsla(var(--brand-hue), 100%, 20%, 0.25);
 }
 
 @mixin dark {
-  --brand: hsl(var(--brand-hue) 100% 20%);
-  --text-light: hsl(var(--brand-hue) 100% 80%);
-  --text-mid: hsl(var(--brand-hue) 100% 60%);
-  --text-dark: hsl(var(--brand-hue) 100% 0%);
+  --brand: hsl(var(--brand-hue) 80% 40%);
 
-  --accent1: hsl(var(--brand-hue) 25% 90%);
-  --accent2: hsl(var(--brand-hue) 20% 90%);
-  --accent3: hsl(var(--brand-hue) 65% 90%);
-  --accent4: hsl(var(--brand-hue) 75% 90%);
+  --text: var(--brand-white);
 
-  --accent-shadow: hsl(var(--brand-hue) 100% 100%);
+  --accent-saturation: 25%;
+  --accent-1: hsl(var(--brand-hue) var(--accent-saturation) 20%);
+  --accent-2: hsl(var(--brand-hue) var(--accent-saturation) 25%);
+  --accent-3: hsl(var(--brand-hue) var(--accent-saturation) 30%);
+  --accent-4: hsl(var(--brand-hue) var(--accent-saturation) 35%);
+
+  --accent-shadow: hsla(var(--brand-hue), 100%, 20%, 0.25);
 }
 
 .dark {
@@ -49,9 +50,9 @@
   width: 4rem;
   height: 2rem;
   border-radius: 1rem;
-  border: 4px solid var(--accent4);
+  border: 4px solid var(--accent-4);
   cursor: pointer;
-  background: hsl(210, 100%, 85%);
+  background: var(--accent-1);
 
   /* Toggle Indicator */
   &::after {
@@ -59,14 +60,14 @@
     height: 1rem;
     width: 1rem;
     background: hsl(50, 100%, 50%);
-    box-shadow: 0 0 0.35rem var(--accent-shadow);
+    box-shadow: 0 0 0.35rem black;
     position: absolute;
     margin: auto;
     top: 0;
-    left: 0.25rem;
+    left: 0.5rem;
     bottom: 0;
     border-radius: 50%;
-    transition: 0.4s;
+    transition: 0.5s;
   }
 
   /* Checked Styles */
