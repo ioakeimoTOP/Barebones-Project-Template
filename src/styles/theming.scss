@@ -9,6 +9,7 @@
   --brand: hsl(var(--brand-hue) 80% 45%);
 
   --text: var(--brand-black);
+  --text-inverse: var(--brand-white);
 
   --accent-saturation: 45%;
   --accent-1: hsl(var(--brand-hue) var(--accent-saturation) 75%);
@@ -23,6 +24,7 @@
   --brand: hsl(var(--brand-hue) 80% 40%);
 
   --text: var(--brand-white);
+  --text-inverse: var(--brand-black);
 
   --accent-saturation: 25%;
   --accent-1: hsl(var(--brand-hue) var(--accent-saturation) 20%);
